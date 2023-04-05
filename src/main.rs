@@ -15,7 +15,7 @@ async fn main() -> Result<(), Error> {
         .map(|s| String::from(s))
         .collect();
     
-    let ws_handler = WebSocketHandler::new("127.0.0.1", 8888, lines);
+    let ws_handler = WebSocketHandler::new("0.0.0.0", 8888, lines);
     ws_handler.init().await;
     
     loop {}

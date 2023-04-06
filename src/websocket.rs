@@ -82,7 +82,7 @@ impl WebSocketHandlerWorker {
                     warn!("Failed to send Message to WebSocket: {}", e.to_string());
                     continue;
                 }
-                tokio::time::sleep(Duration::from_millis(500)).await;
+                tokio::time::sleep(Duration::from_millis(200)).await;
             }
             
         });

@@ -48,7 +48,6 @@ async fn main() -> Result<(), Error> {
     
     // Tries to open the data file
     if file_path.is_empty() {
-        println!("{}", file_path);
         return Err(Error::new(std::io::ErrorKind::NotFound, "No File Input Path Was Specified."));
     }
     

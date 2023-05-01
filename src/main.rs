@@ -41,7 +41,7 @@ async fn main() -> Result<(), Error> {
     
     // Initializes Logger
     if verbose {
-        Builder::from_env(Env::default().default_filter_or("websocket_producer=trace"))
+        Builder::from_env(Env::default().default_filter_or("wsyeet=trace"))
             .init();
         info!("Initialized Logger!");
     }

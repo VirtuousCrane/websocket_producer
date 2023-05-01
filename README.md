@@ -3,7 +3,7 @@ Reads data from a file and sends it to a websocket port line by line
 
 ## Usage Example
 ```
-wsyeet --host 0.0.0.0 --port 9999 --file ./mock_data.txt --verbose --frequency 200
+wsyeet --host 0.0.0.0 --port 9999 --file ./mock_data.txt --verbose --freq 200
 ```
 
 ## Options

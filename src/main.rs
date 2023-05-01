@@ -34,7 +34,7 @@ async fn main() -> Result<(), Error> {
             .add_option(&["-f", "--file"], Store, "The file path to be read from.");
         
         arg_parser.refer(&mut frequency)
-            .add_option(&["--frequency"], Store, "The frequency to send the data in ms. Defauls to 1000ms.");
+            .add_option(&["-F", "--freq"], Store, "The frequency to send the data in ms. Defauls to 1000ms.");
         
         arg_parser.parse_args_or_exit();
     }

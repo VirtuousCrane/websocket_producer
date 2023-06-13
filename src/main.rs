@@ -3,9 +3,7 @@ use argparse::{ArgumentParser, StoreTrue, Store};
 use env_logger::{Builder, Env};
 use log::{warn, info};
 use tokio::{fs::File, io::AsyncReadExt};
-use websocket::WebSocketHandler;
-
-mod websocket;
+use wsyeet::websocket::WebSocketHandler;
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {

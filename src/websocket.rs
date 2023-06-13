@@ -5,12 +5,14 @@ use log::{warn, info};
 use tokio::{net::{TcpListener, TcpStream}};
 use tokio_tungstenite::tungstenite::Message;
 
+/// A High-Level Object to control WebSocket
 pub struct WebSocketHandler {
     addr: String,
     frequency: u32,
     mock_data: Arc<Vec<String>>,
 }
 
+/// The Object that actually runs the WebSocket
 struct WebSocketHandlerWorker {
     addr: String,
     frequency: u32,
@@ -23,6 +25,7 @@ impl WebSocketHandler {
         WebSocketHandler { addr, frequency, mock_data: Arc::new(mock_data) }
     }
     
+    /// Initializes a new WebSocketHandlerWorker and runs it
     pub async fn init(&self) {
         let addr_clone = self.addr.clone();
         let mock_data_ptr = self.mock_data.clone();
@@ -44,6 +47,7 @@ impl WebSocketHandlerWorker {
         }
     }
     
+    /// Binds the WebSocket port and wat for a new connection
     pub async fn start(&self) -> Result<(), Box<dyn Error>> {
         let addr_clone = self.addr.clone();
         
@@ -66,6 +70,7 @@ impl WebSocketHandlerWorker {
         Ok(())
     }
     
+    /// Sends a message to a WebSocket Stream
     async fn ws_send(&self, stream: TcpStream, socket_addr: SocketAddr) {
         let mock_data_ptr = self.mock_data.clone();
         let freq = self.frequency as u64;
